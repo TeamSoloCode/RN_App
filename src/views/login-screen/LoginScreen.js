@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux'
 
+import { typingEmail, typingPassword } from './../../actions/actions';
 import LoginButton from '../../components/login-button/LoginButton';
 import RegisterButton from '../../components/register-button/RegisterButton';
 import styles from './LoginStyle';
@@ -10,11 +11,10 @@ class LoginScreen extends Component {
 
   constructor(props) {
     super(props)
-    this.props.email = ''
-    this.props.password = ''
-  }
 
+  }
   render() {
+   
     return (
       <View style={{ flex: 1 }}>
         <View style={styles.titlePosition}>
@@ -23,16 +23,16 @@ class LoginScreen extends Component {
 
         <View style={styles.inputPosition}>
           <TextInput style={styles.input} keyboardType="email-address" placeholder="Input Email"
-            onChangeText = { (text) => {this.props.email = text} }
+            onChangeText = {(email) => {this.props.typingEmail(email)} }
           />
           <TextInput style={styles.input} keyboardType="default" textContentType="password" 
             placeholder="Input Password" secureTextEntry={true}
-            onChangeText= {(text) => {this.props.password = text}}
+            onChangeText= {(password) => {this.props.typingPassword(password)}}
           />
         </View>
 
         <View style={styles.buttonPosition}>
-          <LoginButton email = {this.props.email} password = {this.props.password}></LoginButton>
+          <LoginButton></LoginButton>
           <RegisterButton></RegisterButton>
         </View>
       </View>
@@ -40,4 +40,15 @@ class LoginScreen extends Component {
   }
 }
 
-export default connect()(LoginScreen);
+
+
+const mapDispatchToProps = (dispatch) => ({
+  typingEmail: (email) => {
+    dispatch(typingEmail(email))
+  },
+  typingPassword: (password) =>{
+    dispatch(typingPassword(password))
+  }
+})
+
+export default connect(null, mapDispatchToProps)(LoginScreen);

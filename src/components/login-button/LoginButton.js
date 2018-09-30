@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import store from './../../store/store';
 
 import styles from './LoginButtonStyle'
 import { loginWithFirebase } from './../../actions/actions';
 
 class LoginButton extends Component {
 
-    constructor(props) {
+    constructor(props){
         super(props)
-        this.props.email = ''
-        this.props.password = ''  
     }
 
     render() {
@@ -18,7 +17,9 @@ class LoginButton extends Component {
             <View>
                 <TouchableOpacity 
                     onPress={() => {
-                        this.props.loginWithFirebase(this.props.email, this.props.password)
+                        this.props.loginWithFirebase(
+                            store.getState().login.userAccount.email,
+                            store.getState().login.userAccount.password)
                     }}
                     onShowUnderDelay={()=>{alert("Thông báo");}}>
                     <View style={styles.button}>
@@ -30,6 +31,9 @@ class LoginButton extends Component {
     };
 }
 
+const mapStateToProps = (state) => ({
+    abc: state.login.userAccount.email
+})
 
 const mapDispatchToProps = (dispatch) => ({
     loginWithFirebase: (email, password) => {
@@ -37,4 +41,4 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-export default connect(null, mapDispatchToProps)(LoginButton)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginButton)

@@ -1,8 +1,11 @@
 import {
     LOGIN_WITH_FIREBASE,
     LOGIN_WITH_GOOGLE,
-    LOGIN_WITH_FACEBOOK
+    LOGIN_WITH_FACEBOOK,
+    TYPING_EMAIL,
+    TYPING_PASSWORD
 } from '../actions/actionsTypes';
+
 import * as firebase from 'firebase';
 
 let initialState = {
@@ -16,21 +19,18 @@ let initialState = {
 const loginReducer = (state = initialState, action) => {
     switch(action.type){
         case LOGIN_WITH_FIREBASE:
-            state.userAccount.email = action.email;
-            state.userAccount.password = action.password;
-            alert(JSON.stringify(action))
+            state.userAccount.email = ""
+            state.userAccount.password = ""
+            break;
+        case TYPING_EMAIL:
+            state.userAccount.email = action.email
+            break;
+        case TYPING_PASSWORD:
+            state.userAccount.password = action.password
             break;
     }
-    return state;
+    return state
 }
 
-function loginFirebase(email, password, firebase){
-    try{
-        return firebase.auth().signInWithEmailAndPassword(email, password);
-    }
-    catch(err){
-        throw err;
-    }
-}
 
 export default loginReducer;
