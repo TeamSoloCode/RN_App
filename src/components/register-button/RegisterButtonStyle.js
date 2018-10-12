@@ -8,13 +8,15 @@ const styles = StyleSheet.create({
     button: {
         marginTop: 10,
         width: 200,
+        height: 40,
         alignItems: 'center',
         backgroundColor: '#2196F3',
-        borderRadius: 30,
+        borderRadius: 15,
         shadowOpacity:20
     },
     buttonText: {
-        padding: 20,
+        paddingTop:10,
+        paddingBottom:20,
         color: 'white'
     }
 })

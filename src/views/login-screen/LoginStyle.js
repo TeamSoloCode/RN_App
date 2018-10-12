@@ -13,19 +13,59 @@ const styles = StyleSheet.create(
     alignItems: 'center',
     flex: 20
   },
-  inputPosition: {
-    marginLeft: 100,
-    marginRight: 100,
-    flex: 40
+  inputPositionUsername: {
+    width:300,
+    marginTop:150,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    borderWidth: .5,
+    borderColor: '#2196F3',
+    height: 40,
+    borderRadius: 5 ,
+    margin: 10
   },
-  Text: {
-    marginTop: 100,
-    fontSize: 20,
+  inputPositionPassword: {
+    width:300,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    borderWidth: .5,
+    borderColor: '#2196F3',
+    height: 40,
+    borderRadius: 5 ,
+    margin: 10,
+  },
+  logo: {
+    marginTop: 130,
+    width:150,
+    height: 150
   },
   input: {
-    height: 60,
-    marginTop: 10,
-  }
+    flex:1,
+    color:'#FFFFFF'
+  },
+  ImageStyle: {
+    padding: 10,
+    margin: 5,
+    height: 25,
+    width: 25,
+    resizeMode : 'stretch',
+    alignItems: 'center'
+  },
+  container:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10
+  },
+  backgroundImage: {
+    flex: 1,
+    width: null,
+    height: null,
+},
 });
 
 export default styles 
