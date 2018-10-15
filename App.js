@@ -6,8 +6,7 @@ import * as firebase from 'firebase'
 
 import store from './src/store/store'
 import serviceAccount from './serviceAccountKey.json'
-import LoginScreen from './src/views/login-screen/LoginScreen';
-
+import { Route } from './src/route/route';
 /**
  * Kết nối với firebase admin , để đăng nhập
  */
@@ -28,7 +27,7 @@ export default class App extends React.Component {
   render() {
     return (
         <Provider store={store}>
-          <LoginScreen></LoginScreen>
+        <Route/>
         </Provider>
     );
   }

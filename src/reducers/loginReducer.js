@@ -19,8 +19,9 @@ let initialState = {
 const loginReducer = (state = initialState, action) => {
     switch(action.type){
         case LOGIN_WITH_FIREBASE:
-            state.userAccount.email = ""
-            state.userAccount.password = ""
+            state.userAccount.email = action.email
+            state.userAccount.password = action.password
+            alert(JSON.stringify(state.userAccount))
             break;
         case TYPING_EMAIL:
             state.userAccount.email = action.email
