@@ -12,7 +12,7 @@ const styles = StyleSheet.create(
     borderColor: '#2196F3',
     height: 40,
     borderRadius: 5 ,
-    margin: 10
+    
   },
   
   input: {

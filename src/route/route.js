@@ -20,6 +20,6 @@ export const Route = createStackNavigator(
     },
 
     {
-        initialRouteName: 'LoginScreen',
+        initialRouteName: 'RegisterScreen',
     }
 );

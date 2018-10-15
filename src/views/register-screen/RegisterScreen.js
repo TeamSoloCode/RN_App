@@ -6,7 +6,6 @@ import styles from './RegisterStyle';
 import * as constants from '../../constants'
 import * as color from '../../colors'
 import * as strings from '../../string'
-
 import CustomInput from '../../components/common-component/custom-input/CustomInput'
 import CustomDatePicker from '../../components/common-component/custom-date-picker/CustomDatePicker';
 import CustomButton from '../../components/common-component/custom-button/CustomButton';
@@ -24,29 +23,44 @@ class RegisterScreen extends Component {
         blurRadius={2}
         source={constants.IMAGE_BACKGROUND} >
         <View style={styles.container}>
-          <CustomInput
-            buttonIcon={constants.LOGIN_ICON}
-            hint={"Enter username"} secureText={false}
-            underlineColor={color.TRANSPARENT}
-          ></CustomInput>
-          <CustomInput
-            buttonIcon={constants.LOGIN_ICON}
-            hint={"Enter email "} secureText={false}
-            underlineColor={color.TRANSPARENT}
-          ></CustomInput>
-          <CustomInput
-            buttonIcon={constants.LOGIN_ICON}
-            hint={"Enter password"} secureText={false}
-            underlineColor={color.TRANSPARENT}
-          ></CustomInput>
-          <CustomInput
-            buttonIcon={constants.LOGIN_ICON}
-            hint={"Enter confirm password"} secureText={false}
-            underlineColor={color.TRANSPARENT}
-          ></CustomInput>
+          <View>
+            <Text style={styles.text}>Register</Text>
+          </View>
+          <View style={styles.inputPosition}>
+            <CustomInput
+              showIcon={true}
+              buttonIcon={constants.LOGIN_ICON}
+              hint={"Enter username"} secureText={false}
+              underlineColor={color.TRANSPARENT}
+            ></CustomInput></View>
+
+          <View style={styles.inputPosition}>
+            <CustomInput
+              showIcon={true}
+              buttonIcon={constants.EMAIL_ICON}
+              hint={"Enter email "} secureText={false}
+              underlineColor={color.TRANSPARENT}
+            ></CustomInput></View>
+
+          <View style={styles.inputPosition}>
+            <CustomInput
+              showIcon={true}
+              buttonIcon={constants.PASSWORD_ICON}
+              hint={"Enter password"} secureText={false}
+              underlineColor={color.TRANSPARENT}
+            ></CustomInput></View>
+
+          <View style={styles.inputPosition}>
+            <CustomInput
+              showIcon={true}
+              buttonIcon={constants.PASSWORD_ICON}
+              hint={"Enter confirm password"} secureText={false}
+              underlineColor={color.TRANSPARENT}
+            ></CustomInput></View>
+
           <CustomDatePicker></CustomDatePicker>
-           <View style={styles.buttonPosition}>
-            <CustomButton name={strings.REGISTER} onClick = {() => {""}}></CustomButton>
+          <View style={styles.buttonPosition}>
+            <CustomButton name={strings.REGISTER} onClick={() => { "" }}></CustomButton>
           </View>
         </View>
 
