@@ -14,7 +14,18 @@ const styles = StyleSheet.create(
     borderRadius: 5 ,
     
   },
-  
+  inputNoIcon:{
+    width:200,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: '#2196F3',
+    height: 40,
+    borderRadius: 5 ,
+    paddingLeft:10
+  },
   input: {
     flex:1,
     color:'#FFFFFF'

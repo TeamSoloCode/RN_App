@@ -16,11 +16,11 @@ class CustomInput extends Component {
  
   render() {
     return (
-      <View style={styles.inputPosition}>
+      <View style={!this.props.showIcon ? styles.inputNoIcon : styles.inputPosition}>
       {
         this.props.showIcon ?  <Image source={this.props.buttonIcon} style={styles.ImageStyle} /> : null
       }
-        <TextInput style={styles.input}  placeholder = {this.props.hint}
+        <TextInput style={  styles.input}  placeholder = {this.props.hint}
           onChangeText={ this.props.onChangeEmail}
           secureTextEntry = {this.props.secureText}
           textContentType = {this.props.textContent}

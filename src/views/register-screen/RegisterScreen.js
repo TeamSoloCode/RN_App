@@ -57,8 +57,9 @@ class RegisterScreen extends Component {
               hint={"Enter confirm password"} secureText={false}
               underlineColor={color.TRANSPARENT}
             ></CustomInput></View>
-
-          <CustomDatePicker></CustomDatePicker>
+          <View style={styles.inputPosition}>
+            <CustomDatePicker></CustomDatePicker>
+          </View>
           <View style={styles.buttonPosition}>
             <CustomButton name={strings.REGISTER} onClick={() => { "" }}></CustomButton>
           </View>

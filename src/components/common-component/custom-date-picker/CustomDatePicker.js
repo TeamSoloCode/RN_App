@@ -1,37 +1,24 @@
 import React, { Component } from 'react'
-import DatePicker from 'react-native-datepicker'
+import {View} from 'react-native'
+import CustomInput from '../custom-input/CustomInput'
+import CustomButton from '../custom-button/CustomButton';
+import styles from './CustomDatePickerStyle'
+import * as constants from '../../../constants'
+import * as color from '../../../colors'
 
 export default class CustomDatePicker extends Component {
-  constructor(props){
-    super(props)
-    this.state = {date:"2016-05-15"}
-  }
-
-  render(){
-    return (
-      <DatePicker
-        
-        style={{width: 200}}
-        date={this.state.date}
-        mode="date"
-        placeholder="select date"
-        format="YYYY-MM-DD"
-        minDate="2016-05-01"
-        maxDate="2016-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }        }}
-        onDat-eChange={(date) => {this.setState({date: date})}}
-      />
-    )
-  }
+    render() {
+      return (
+        <View style = {styles.calendarPosition} >
+        <View style = {styles.iconPos} >
+        <CustomButton buttonIcon={constants.CALENDAR_ICON} showIcon = {true} onClick={() => { }}></CustomButton>
+        </View>
+        <CustomInput 
+            showIcon={false}
+            hint={"1990-01-01"} secureText={false}
+            underlineColor={color.TRANSPARENT}
+          ></CustomInput> 
+        </View>
+      )
+    }
 }

@@ -1,6 +1,6 @@
 
 import { StyleSheet } from 'react-native'
-
+import * as color from '../../../colors';
 const styles = StyleSheet.create({
     container: {
         paddingTop: 60,
@@ -11,23 +11,24 @@ const styles = StyleSheet.create({
         width: 200,
         height: 40,
         alignItems: 'center',
-        backgroundColor: '#2196F3',
-        borderRadius: 15,
+        backgroundColor: color.BLUE,
+        borderRadius: 5,
     },
     backgroundIcon: {
+        marginRight : 5,
         width: 35,
         height: 35,
         alignItems: 'center',
-        backgroundColor: '#2196F3',
-        borderRadius: 15,
+        backgroundColor: color.BLUE,
+        borderRadius: 5,
     },
     buttonText: {
         paddingTop: 10,
         paddingBottom: 20,
-        color: 'white'
+        color: color.WHITE
     },
     ImageStyle: {
-        marginTop: 3,
+        marginTop: 4,
         height: 25,
         width: 25,
         resizeMode: 'stretch',

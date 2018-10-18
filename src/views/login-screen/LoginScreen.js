@@ -11,13 +11,10 @@ import CustomButton from '../../components/common-component/custom-button/Custom
 import store  from '../../store/store'
 import * as strings from '../../string';
 class LoginScreen extends Component {
-
   constructor(props) {
     super(props)
   }
-  
   render() {
-
     return (
       <ImageBackground
         style={styles.backgroundImage}
@@ -28,18 +25,24 @@ class LoginScreen extends Component {
             <Image source={constants.IMAGE_GEOLOCATION} style={styles.logo} />
           </View>
           <View style = {{marginTop : 150}}> 
+          <View style = {{marginTop : 20}}>
           <CustomInput
+            showIcon = {true}
             buttonIcon={constants.LOGIN_ICON}
             onChangeEmail={(email) => { this.props.typingEmail(email) }}
             hint={"Enter email or username"} secureText={false}
             underlineColor = {color.TRANSPARENT}
             ></CustomInput>
+          </View>
+          <View style = {{marginTop : 20}}>
           <CustomInput
+            showIcon = {true}
             buttonIcon={constants.PASSWORD_ICON}
             onChangeEmail={(password) => { this.props.typingPassword(password) }}
             underlineColor = {color.TRANSPARENT}
             hint={"Enter password"} secureText={true}
             ></CustomInput>
+          </View>
           </View>
           <View style={styles.buttonPosition}>
             <CustomButton name={strings.LOGIN} onClick = {() => {

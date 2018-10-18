@@ -22,7 +22,7 @@ const styles = StyleSheet.create(
     },
     inputPosition:{
       margin :10
-    }
+    },
     
   });
 
