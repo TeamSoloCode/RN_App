@@ -20,8 +20,9 @@ class CustomInput extends Component {
       {
         this.props.showIcon ?  <Image source={this.props.buttonIcon} style={styles.ImageStyle} /> : null
       }
-        <TextInput style={  styles.input}  placeholder = {this.props.hint}
-          onChangeText={ this.props.onChangeEmail}
+        <TextInput style={styles.input}  placeholder = {this.props.hint}
+          value = {this.props.value}
+          onChangeText={ this.props.onChange}
           secureTextEntry = {this.props.secureText}
           textContentType = {this.props.textContent}
           underlineColorAndroid = {this.props.underlineColor} />

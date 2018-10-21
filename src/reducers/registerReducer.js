@@ -9,7 +9,7 @@ import {
     REGISTER_CANCELED,
     REGISTERING
 
-} from './actionsTypes'
+} from '../actions/actionsTypes';
 
 let initialState = {
     registerAccount: {
@@ -43,6 +43,7 @@ const registerReducer = (state = initialState, action) => {
 
         case BIRTHDAY_SELECTED:
             state.registerAccount.registerBirthday = action.birthday
+            alert(JSON.stringify(state.registerAccount.registerBirthday));
             break;
 
         case REGISTER_SUCCESSFUL:

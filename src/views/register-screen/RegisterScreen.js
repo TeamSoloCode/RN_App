@@ -6,6 +6,7 @@ import styles from './RegisterStyle';
 import * as constants from '../../constants'
 import * as color from '../../colors'
 import * as strings from '../../string'
+import store  from '../../store/store'
 import CustomInput from '../../components/common-component/custom-input/CustomInput'
 import CustomDatePicker from '../../components/common-component/custom-date-picker/CustomDatePicker';
 import CustomButton from '../../components/common-component/custom-button/CustomButton';
@@ -16,7 +17,7 @@ class RegisterScreen extends Component {
     super(props)
   }
   render() {
-
+  
     return (
       <ImageBackground
         style={styles.backgroundImage}
@@ -61,7 +62,11 @@ class RegisterScreen extends Component {
             <CustomDatePicker></CustomDatePicker>
           </View>
           <View style={styles.buttonPosition}>
-            <CustomButton name={strings.REGISTER} onClick={() => { "" }}></CustomButton>
+            <CustomButton name={strings.REGISTER} onClick={() => {
+              this.props.selectBirthday(
+                store.getState().register.registerAccount.selectBirthday
+              )
+            }}></CustomButton>
           </View>
         </View>
 
@@ -69,9 +74,6 @@ class RegisterScreen extends Component {
     );
   }
 }
-
-
-
 const mapDispatchToProps = (dispatch) => ({
   typingRegisterEmail: (email) => {
     dispatch(typingRegisterEmail(email))
