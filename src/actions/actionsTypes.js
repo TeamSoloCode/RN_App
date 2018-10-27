@@ -18,3 +18,9 @@ export const REGISTER_SUCCESSFUL = 'REGISTER_SUCCESSFUL';
 export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 export const REGISTER_CANCELED = 'REGISTER_CANCELED';
 export const REGISTERING = 'REGISTERING';
+export const REGISTER_WITH_FIREBASE = 'REGISTER_WITH_BASE'
+
+/**
+ * control action types
+ */
+ export const GETTING_DATE = 'GETTING_DATE';

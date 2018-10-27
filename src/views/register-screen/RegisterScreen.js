@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput, ImageBackground, Image } from 'react-native';
 import { connect } from 'react-redux'
-import { typingRegisterEmail, typingRegisterPassword, typingRegisterComfirmPassword, typingUsername, selectBirthday } from '../../actions/registerActions';
+import { typingRegisterEmail, typingRegisterPassword, typingRegisterComfirmPassword, typingUsername, selectBirthday ,registerWithFirebase} from '../../actions/registerActions';
 import styles from './RegisterStyle';
 import * as constants from '../../constants'
 import * as color from '../../colors'
@@ -29,6 +29,7 @@ class RegisterScreen extends Component {
           </View>
           <View style={styles.inputPosition}>
             <CustomInput
+              onChange = {this.props.typingUsername}
               showIcon={true}
               buttonIcon={constants.LOGIN_ICON}
               hint={"Enter username"} secureText={false}
@@ -37,6 +38,7 @@ class RegisterScreen extends Component {
 
           <View style={styles.inputPosition}>
             <CustomInput
+              onChange = {this.props.typingRegisterEmail}
               showIcon={true}
               buttonIcon={constants.EMAIL_ICON}
               hint={"Enter email "} secureText={false}
@@ -45,17 +47,21 @@ class RegisterScreen extends Component {
 
           <View style={styles.inputPosition}>
             <CustomInput
+              onChange = {this.props.typingRegisterPassword}
               showIcon={true}
               buttonIcon={constants.PASSWORD_ICON}
-              hint={"Enter password"} secureText={false}
+              hint={"Enter password"} 
+              secureText={true}
               underlineColor={color.TRANSPARENT}
             ></CustomInput></View>
 
           <View style={styles.inputPosition}>
             <CustomInput
+              onChange = {this.props.typingRegisterComfirmPassword}
               showIcon={true}
               buttonIcon={constants.PASSWORD_ICON}
-              hint={"Enter confirm password"} secureText={false}
+              hint={"Enter confirm password"} 
+              secureText={true}
               underlineColor={color.TRANSPARENT}
             ></CustomInput></View>
           <View style={styles.inputPosition}>
@@ -63,8 +69,13 @@ class RegisterScreen extends Component {
           </View>
           <View style={styles.buttonPosition}>
             <CustomButton name={strings.REGISTER} onClick={() => {
-              this.props.selectBirthday(
-                store.getState().register.registerAccount.selectBirthday
+              this.props.registerWithFirebase(
+                store.getState().register.registerAccount.registerEmail,
+                store.getState().register.registerAccount.registerUsername,
+                store.getState().register.registerAccount.registerPassword,
+                store.getState().register.registerAccount.registerConfirmPassword,
+                store.getState().register.registerAccount.registerBirthday,
+
               )
             }}></CustomButton>
           </View>
@@ -90,6 +101,9 @@ const mapDispatchToProps = (dispatch) => ({
   selectBirthday: (date) => {
     dispatch(selectBirthday(date))
   },
+  registerWithFirebase: (email,username,password,confirmPassword,date) => {
+    dispatch(registerWithFirebase(email,username,password,confirmPassword,date))
+  }
 })
 
 export default connect(null, mapDispatchToProps)(RegisterScreen);

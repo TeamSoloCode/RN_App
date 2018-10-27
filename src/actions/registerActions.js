@@ -7,7 +7,8 @@ import {
     REGISTER_SUCCESSFUL,
     REGISTER_FAILURE,
     REGISTER_CANCELED,
-    REGISTERING
+    REGISTERING,
+    REGISTER_WITH_FIREBASE
 } from './actionsTypes'
 
 /**
@@ -62,7 +63,7 @@ export const typingUsername = (username) => {
 export const selectBirthday = (date) => {
     const action = {
         type: BIRTHDAY_SELECTED,
-        birthday: date
+        date : date
     }
     return action
 }
@@ -111,6 +112,17 @@ export const registering = (registerStatus) => {
     const action = {
         type: REGISTERING,
         registerStatus: registerStatus
+    }
+    return action
+}
+export const registerWithFirebase = (email,username,password,confirmPassword,date) => {
+    const action = {
+        type: REGISTER_WITH_FIREBASE,
+        email:email,
+        username:username,
+        password:password,
+        confirmPassword:confirmPassword,
+        date:date
     }
     return action
 }

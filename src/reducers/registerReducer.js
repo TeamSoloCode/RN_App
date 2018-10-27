@@ -7,7 +7,8 @@ import {
     REGISTER_SUCCESSFUL,
     REGISTER_FAILURE,
     REGISTER_CANCELED,
-    REGISTERING
+    REGISTERING,
+    REGISTER_WITH_FIREBASE
 
 } from '../actions/actionsTypes';
 
@@ -42,8 +43,7 @@ const registerReducer = (state = initialState, action) => {
             break;
 
         case BIRTHDAY_SELECTED:
-            state.registerAccount.registerBirthday = action.birthday
-            alert(JSON.stringify(state.registerAccount.registerBirthday));
+            state.registerAccount.registerBirthday = action.date
             break;
 
         case REGISTER_SUCCESSFUL:
@@ -60,6 +60,14 @@ const registerReducer = (state = initialState, action) => {
 
         case REGISTERING:
             
+            break;
+        case REGISTER_WITH_FIREBASE:
+            state.registerAccount.registerEmail = action.email
+            state.registerAccount.registerPassword = action.password
+            state.registerAccount.registerConfirmPassword = action.confirmPassword
+            state.registerAccount.registerUsername = action.username
+            state.registerAccount.registerBirthday =action.date
+            alert(JSON.stringify(state.registerAccount))
             break;
     }
     return state

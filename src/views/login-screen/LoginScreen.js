@@ -29,7 +29,7 @@ class LoginScreen extends Component {
           <CustomInput
             showIcon = {true}
             buttonIcon={constants.LOGIN_ICON}
-            onChangeEmail={(email) => { this.props.typingEmail(email) }}
+            onChange={(email) => { this.props.typingEmail(email) }}
             hint={"Enter email or username"} secureText={false}
             underlineColor = {color.TRANSPARENT}
             ></CustomInput>
@@ -38,7 +38,7 @@ class LoginScreen extends Component {
           <CustomInput
             showIcon = {true}
             buttonIcon={constants.PASSWORD_ICON}
-            onChangeEmail={(password) => { this.props.typingPassword(password) }}
+            onChange={(password) => { this.props.typingPassword(password) }}
             underlineColor = {color.TRANSPARENT}
             hint={"Enter password"} secureText={true}
             ></CustomInput>
