@@ -8,25 +8,22 @@ import {
 } from '../actions/actionsTypes';
 
 let initialState = {
-    userAccount:{
+    userAccount: {
         email: "",
-        password:"",
+        password: "",
         loggedBy: -1
     }
 }
 
 //tạo reducer cho hành động đăng nhập
 const loginReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case LOGIN_WITH_FIREBASE:
             state.userAccount.email = action.email
             state.userAccount.password = action.password
-<<<<<<< HEAD
-=======
             break;
         case LOGIN_WITH_FIREBASE_SUCCESSFUL:
             state.userAccount.loggedBy = action.loggedBy
->>>>>>> c3539dd658e7f36b937051768a201456cde20b23
             alert(JSON.stringify(state.userAccount))
             break;
         case TYPING_EMAIL:
