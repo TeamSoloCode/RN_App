@@ -9,7 +9,7 @@ import {
 import { delay } from 'redux-saga'
 import { put, takeEvery } from 'redux-saga/effects'
 
-import { loginWithFirebaseSuccessful } from '../actions/loginAction'
+import { loginWithFirebaseSuccessful } from '../actions/loginActions'
 
 function* incrementAsync() {
     yield delay(2000)
