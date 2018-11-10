@@ -32,7 +32,7 @@ class LoginButton extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    abc: state.login.userAccount.email
+    
 })
 
 const mapDispatchToProps = (dispatch) => ({

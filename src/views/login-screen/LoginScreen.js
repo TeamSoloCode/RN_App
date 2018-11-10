@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Text, View, TextInput,ImageBackground, Image } from 'react-native';
+import {View, TextInput, ImageBackground, Image } from 'react-native';
 import { connect } from 'react-redux'
 
 import { typingEmail, typingPassword } from './../../actions/actions';
@@ -43,11 +43,10 @@ class LoginScreen extends Component {
         </View>
 
         <View style={styles.buttonPosition}>
-          <LoginButton email={this.props.email} password={this.props.password}></LoginButton>
+          <LoginButton></LoginButton>
           <RegisterButton></RegisterButton>
         </View>
       </View>
-
     </ImageBackground>
     );
   }
