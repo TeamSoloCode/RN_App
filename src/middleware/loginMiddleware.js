@@ -9,14 +9,14 @@ import {
 import { delay } from 'redux-saga'
 import { put, takeEvery } from 'redux-saga/effects'
 
-import { loginWithFirebaseSuccessful } from '../actions/actions'
+import { loginWithFirebaseSuccessful } from '../actions/loginAction'
 
 function* incrementAsync() {
     yield delay(2000)
     yield put(loginWithFirebaseSuccessful())
-  }
-  
-  
+}
+
+
 export default function* watchIncrementAsync() {
     yield takeEvery(LOGIN_WITH_FIREBASE, incrementAsync)
 }
