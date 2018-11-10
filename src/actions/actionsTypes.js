@@ -6,7 +6,6 @@ export const LOGIN_WITH_FACEBOOK = 'LOGIN_WITH_FACEBOOK';
 export const LOGIN_WITH_GOOGLE = 'LOGIN_WITH_GOOGLE';
 export const TYPING_EMAIL = 'TYPING_EMAIL'
 export const TYPING_PASSWORD = 'TYPING_PASSWORD'
-<<<<<<< HEAD
 /**
  * register action types
  */
@@ -24,7 +23,5 @@ export const REGISTER_WITH_FIREBASE = 'REGISTER_WITH_BASE'
 /**
  * control action types
  */
- export const GETTING_DATE = 'GETTING_DATE';
-=======
+export const GETTING_DATE = 'GETTING_DATE';
 export const LOGIN_WITH_FIREBASE_SUCCESSFUL = 'LOGIN_WITH_FIREBASE_SUCCESSFUL'
->>>>>>> c3539dd658e7f36b937051768a201456cde20b23
