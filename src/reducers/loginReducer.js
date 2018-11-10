@@ -3,15 +3,15 @@ import {
     LOGIN_WITH_GOOGLE,
     LOGIN_WITH_FACEBOOK,
     TYPING_EMAIL,
-    TYPING_PASSWORD
+    TYPING_PASSWORD,
+    LOGIN_WITH_FIREBASE_SUCCESSFUL
 } from '../actions/actionsTypes';
-
-import * as firebase from 'firebase';
 
 let initialState = {
     userAccount:{
-        email: '',
-        password:''
+        email: "",
+        password:"",
+        loggedBy: -1
     }
 }
 
@@ -21,6 +21,12 @@ const loginReducer = (state = initialState, action) => {
         case LOGIN_WITH_FIREBASE:
             state.userAccount.email = action.email
             state.userAccount.password = action.password
+<<<<<<< HEAD
+=======
+            break;
+        case LOGIN_WITH_FIREBASE_SUCCESSFUL:
+            state.userAccount.loggedBy = action.loggedBy
+>>>>>>> c3539dd658e7f36b937051768a201456cde20b23
             alert(JSON.stringify(state.userAccount))
             break;
         case TYPING_EMAIL:

@@ -3,7 +3,8 @@ import {
     LOGIN_WITH_GOOGLE,
     LOGIN_WITH_FACEBOOK,
     TYPING_EMAIL,
-    TYPING_PASSWORD
+    TYPING_PASSWORD,
+    LOGIN_WITH_FIREBASE_SUCCESSFUL
 } from './actionsTypes'
 
 
@@ -68,6 +69,17 @@ export const loginWithGoogle = (email, password) =>{
         type: LOGIN_WITH_GOOGLE,
         email,
         password
+    };
+    return action;
+}
+
+/**
+ * Đăng nhập thành công bằng firebase
+ */
+export const loginWithFirebaseSuccessful = () =>{
+    const action = {
+        type: LOGIN_WITH_FIREBASE_SUCCESSFUL,
+        loggedBy: "firebase"
     };
     return action;
 }

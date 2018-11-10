@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Text, View, TextInput, ImageBackground, Image } from 'react-native';
+=======
+import {View, TextInput, ImageBackground, Image } from 'react-native';
+>>>>>>> c3539dd658e7f36b937051768a201456cde20b23
 import { connect } from 'react-redux'
 
 import { typingEmail, typingPassword, loginWithFirebase } from '../../actions/loginActions';
@@ -54,7 +58,31 @@ class LoginScreen extends Component {
           </View>
         </View>
 
+<<<<<<< HEAD
       </ImageBackground>
+=======
+        <View style={styles.inputPositionUsername}>
+          <Image source={require('../../images/asset/userLoginIcon.png')} style={styles.ImageStyle} />
+          <TextInput style={styles.input} keyboardType="email-address" placeholder="Input Email"
+            onChangeText={(email) => {this.props.typingEmail(email)} }
+            underlineColorAndroid="transparent" />
+        </View>
+
+        <View style={styles.inputPositionPassword}>
+          <Image source={require('../../images/asset/passwordLoginIcon.png')} style={styles.ImageStyle} />
+          <TextInput style={styles.input} keyboardType="default" textContentType="password"
+            placeholder="Input Password" secureTextEntry={true}
+            onChangeText={(password) => {this.props.typingPassword(password)}}
+            underlineColorAndroid="transparent" />
+        </View>
+
+        <View style={styles.buttonPosition}>
+          <LoginButton></LoginButton>
+          <RegisterButton></RegisterButton>
+        </View>
+      </View>
+    </ImageBackground>
+>>>>>>> c3539dd658e7f36b937051768a201456cde20b23
     );
   }
 }
