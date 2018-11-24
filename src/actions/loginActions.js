@@ -4,7 +4,8 @@ import {
     LOGIN_WITH_FACEBOOK,
     TYPING_EMAIL,
     TYPING_PASSWORD,
-    LOGIN_WITH_FIREBASE_SUCCESSFUL
+    LOGIN_WITH_FIREBASE_SUCCESSFUL,
+    LOGIN_WITH_FIREBASE_FAILURE
 } from './actionsTypes'
 
 
@@ -80,6 +81,17 @@ export const loginWithFirebaseSuccessful = () =>{
     const action = {
         type: LOGIN_WITH_FIREBASE_SUCCESSFUL,
         loggedBy: "firebase"
+    };
+    return action;
+}
+
+/**
+ * Đăng nhập thất bại bằng firebase
+ */
+export const loginWithFirebaseFailure = () =>{
+    const action = {
+        type: LOGIN_WITH_FIREBASE_FAILURE,
+        loggedBy: ""
     };
     return action;
 }

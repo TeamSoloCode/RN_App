@@ -3,6 +3,7 @@ import { View, TextInput, ImageBackground, Image } from 'react-native';
 import { connect } from 'react-redux'
 
 import { typingEmail, typingPassword, loginWithFirebase } from '../../actions/loginActions';
+import { requestFetchAllTeamMember } from '../../actions/fetchAllTeamMemberActions'
 import styles from './LoginStyle';
 import CustomInput from '../../components/common-component/custom-input/CustomInput';
 import * as constants from '../../constants';
@@ -52,14 +53,22 @@ class LoginScreen extends Component {
             }} ></CustomButton>
             <CustomButton name={strings.REGISTER} onClick={() => { this.props.navigation.navigate('RegisterScreen') }} ></CustomButton>
           </View>
+          <View style={styles.buttonPosition}>
+            <CustomButton name={'cc'} onClick={() => { 
+                this.props.requestFetchAllTeamMember(
+                  {
+                    userId: store.getState().myMember.userId,
+                    teamId: store.getState().myMember.teamId
+                  }
+                ) 
+              }} ></CustomButton>
+          </View>
         </View>
 
       </ImageBackground>
     );
   }
 }
-
-
 
 const mapDispatchToProps = (dispatch) => ({
   typingEmail: (email) => {
@@ -70,6 +79,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loginWithFirebase: (email, password) => {
     dispatch(loginWithFirebase(email, password))
+  },
+  requestFetchAllTeamMember: (body) => {
+    dispatch(requestFetchAllTeamMember(body))
   }
 })
 

@@ -1,3 +1,6 @@
+import { takeEvery } from 'redux-saga/effects'
+import * as firebase from 'firebase' 
+
 import {
     LOGIN_WITH_FIREBASE,
     LOGIN_WITH_GOOGLE,
@@ -6,17 +9,35 @@ import {
     TYPING_PASSWORD
 } from '../actions/actionsTypes';
 
-import { delay } from 'redux-saga'
-import { put, takeEvery } from 'redux-saga/effects'
+import { 
+    loginWithFirebaseSuccessful,
+    loginWithFirebaseFailure,
+    loginWithFirebase
+ } from '../actions/loginActions'
 
-import { loginWithFirebaseSuccessful } from '../actions/loginActions'
+function loginFirebase(email, password){
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+    .then((userInfomation)=> {
+        console.log(userInfomation.user.displayName)
+        return 1
+    })
+    .catch((error) => {
+        console.log(error.message)
+        return -1
+    });
+}
 
-function* incrementAsync() {
-    yield delay(2000)
-    yield put(loginWithFirebaseSuccessful())
+function* loginFirebaseMiddleware() {
+    const result = loginFirebase()
+    if(result == 1){
+        yield put(loginWithFirebaseSuccessful())
+    }
+    else{
+        yield put(loginWithFirebaseFailure())
+    }
 }
 
 
 export default function* watchIncrementAsync() {
-    yield takeEvery(LOGIN_WITH_FIREBASE, incrementAsync)
+    yield takeEvery(LOGIN_WITH_FIREBASE, loginFirebaseMiddleware)
 }
