@@ -6,10 +6,9 @@ import {
 
 import { fetchAllTeamMember } from '../api/api'
 
-import { put, call, takeLatest } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 
 import {
-    requestFetchAllTeamMember,
     fetchAllTeamMemberFailure,
     fetchAllTeamMemberSuccessful,
     fetchingCaughtException
@@ -19,12 +18,9 @@ function* fetchAllTeamMemberFromApi(action) {
     try {
         const result = yield fetchAllTeamMember(action.body)
         const response = yield result.json();
-        if(response.resultCode == 1){
-            yield put(fetchAllTeamMemberSuccessful(response))
-        } 
-        else{
-            yield put(fetchAllTeamMemberFailure(response))
-        }
+
+        response.resultCode == 1 ? yield put(fetchAllTeamMemberSuccessful(response)) 
+                                 : yield put(fetchAllTeamMemberFailure(response))
     }
     catch(e){
         yield put(fetchingCaughtException(e.toString()))

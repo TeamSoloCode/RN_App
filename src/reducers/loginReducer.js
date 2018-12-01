@@ -4,14 +4,16 @@ import {
     LOGIN_WITH_FACEBOOK,
     TYPING_EMAIL,
     TYPING_PASSWORD,
-    LOGIN_WITH_FIREBASE_SUCCESSFUL
+    LOGIN_WITH_FIREBASE_SUCCESSFUL,
+    LOGIN_WITH_FIREBASE_FAILURE
 } from '../actions/actionsTypes';
 
 let initialState = {
     userAccount: {
         email: "",
         password: "",
-        loggedBy: -1
+        loggedBy: "",
+        userInfo: null
     }
 }
 
@@ -24,7 +26,14 @@ const loginReducer = (state = initialState, action) => {
             break;
         case LOGIN_WITH_FIREBASE_SUCCESSFUL:
             state.userAccount.loggedBy = action.loggedBy
-            alert(JSON.stringify(state.userAccount))
+            state.userAccount.userInfo = {}
+            state.userAccount.userInfo.userName = action.userName,
+            state.userAccount.userInfo.userPhone = action.userPhone,
+            state.userAccount.userInfo.userPhotoUrl = action.userPhotoUrl
+            break;
+        case LOGIN_WITH_FIREBASE_FAILURE:
+            state.userAccount.loggedBy = action.loggedBy
+            
             break;
         case TYPING_EMAIL:
             state.userAccount.email = action.email

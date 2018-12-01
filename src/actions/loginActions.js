@@ -68,8 +68,8 @@ export const loginWithFacebook = (email, password) =>{
 export const loginWithGoogle = (email, password) =>{
     const action = {
         type: LOGIN_WITH_GOOGLE,
-        email,
-        password
+        email: email,
+        password: password
     };
     return action;
 }
@@ -77,10 +77,13 @@ export const loginWithGoogle = (email, password) =>{
 /**
  * Đăng nhập thành công bằng firebase
  */
-export const loginWithFirebaseSuccessful = () =>{
+export const loginWithFirebaseSuccessful = (userName, userPhone, userPhotoUrl) =>{
     const action = {
         type: LOGIN_WITH_FIREBASE_SUCCESSFUL,
-        loggedBy: "firebase"
+        loggedBy: "firebase",
+        userName: userName,
+        userPhone: userPhone,
+        userPhotoUrl: userPhotoUrl
     };
     return action;
 }

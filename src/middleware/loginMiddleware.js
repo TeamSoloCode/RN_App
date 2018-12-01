@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 import * as firebase from 'firebase' 
 
 import {
@@ -12,32 +12,35 @@ import {
 import { 
     loginWithFirebaseSuccessful,
     loginWithFirebaseFailure,
-    loginWithFirebase
  } from '../actions/loginActions'
 
-function loginFirebase(email, password){
-    return firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((userInfomation)=> {
-        console.log(userInfomation.user.displayName)
-        return 1
-    })
-    .catch((error) => {
-        console.log(error.message)
-        return -1
-    });
+const loginFirebase = async (email, password) => {
+    return await firebase.auth().signInWithEmailAndPassword(email, password)
 }
 
-function* loginFirebaseMiddleware() {
-    const result = loginFirebase()
-    if(result == 1){
-        yield put(loginWithFirebaseSuccessful())
+function* loginFirebaseMiddleware(action) {
+    try{
+        let loginsStatus = false
+        let userAccount = {}
+        yield loginFirebase(action.email, action.password)
+        .then((userInfo)=>{
+            loginsStatus = true
+            userAccount.displayName = userInfo.user.displayName
+            userAccount.phoneNumber = userInfo.user.phoneNumber
+            userAccount.photoURL = userInfo.user.photoURL
+        })
+        .catch((reason)=>{
+            console.log(reason)
+        })
+
+        loginsStatus ? yield put(loginWithFirebaseSuccessful(userAccount))
+                     : yield put(loginWithFirebaseFailure())
     }
-    else{
-        yield put(loginWithFirebaseFailure())
+    catch(e){
+        console.log(e.toString())
     }
 }
 
-
-export default function* watchIncrementAsync() {
-    yield takeEvery(LOGIN_WITH_FIREBASE, loginFirebaseMiddleware)
+export default function* watchLoginWithFirebaseAsync() {
+    yield takeLatest(LOGIN_WITH_FIREBASE, loginFirebaseMiddleware)
 }
