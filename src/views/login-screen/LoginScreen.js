@@ -54,14 +54,15 @@ class LoginScreen extends Component {
             <CustomButton name={strings.REGISTER} onClick={() => { this.props.navigation.navigate('RegisterScreen') }} ></CustomButton>
           </View>
           <View style={styles.buttonPosition}>
-            <CustomButton name={'cc'} onClick={() => { 
+            <CustomButton name={'cc'} onClick={() => {
+              this.props.navigation.navigate('TeamScreen'),
                 this.props.requestFetchAllTeamMember(
                   {
                     userId: store.getState().myMember.userId,
                     teamId: store.getState().myMember.teamId
                   }
-                ) 
-              }} ></CustomButton>
+                )
+            }} ></CustomButton>
           </View>
         </View>
 
