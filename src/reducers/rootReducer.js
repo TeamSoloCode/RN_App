@@ -6,5 +6,5 @@ import fetchAllTeamMember from './fetchAllTeamMemberReducer'
 export default combineReducers({
     login: loginReducer,
     register: registerReducer,
-    myMember: fetchAllTeamMember
+    myTeam: fetchAllTeamMember
 })

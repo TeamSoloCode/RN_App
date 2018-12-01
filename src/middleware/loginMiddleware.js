@@ -28,6 +28,7 @@ function* loginFirebaseMiddleware(action) {
             userAccount.displayName = userInfo.user.displayName
             userAccount.phoneNumber = userInfo.user.phoneNumber
             userAccount.photoURL = userInfo.user.photoURL
+            console.log(userAccount)
         })
         .catch((reason)=>{
             console.log(reason)

@@ -8,7 +8,7 @@ import {
 let initialState = {
     userId:'hrqT3YVCUzbEXhoLISENmyzGRaF3',
     teamId: '-LJYoUQsU0ueE0tVUbZp',
-    members: []
+    members: null
 }
 
 /**
@@ -17,21 +17,20 @@ let initialState = {
  * @param {*} action 
  */
 const fetchAllTeamMemberReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case REQUEST_FETCH_ALL_TEAM_MEMBER:
-            console.log('fetching .......')
-            break;
-        case FETCH_ALL_TEAM_MEMBER_FAILURE:
-            console.log(action.resultMessage)
-            break;
-        case FETCH_ALL_TEAM_MENBER_SUCCESSFUL:
-            console.log(action.resultData)
-            break;
-        case EXCEPTION:
-            console.log(action.exception)
-            break;
-    }
-    return state
+        switch (action.type) {
+            case REQUEST_FETCH_ALL_TEAM_MEMBER:
+                console.log('fetching .......')
+                break;
+            case FETCH_ALL_TEAM_MEMBER_FAILURE:
+                break;
+            case FETCH_ALL_TEAM_MENBER_SUCCESSFUL:
+                state.members = action.resultData
+                break;
+            case EXCEPTION:
+                console.log(action.exception)
+                break;
+        }
+        return state
 }
 
 export default fetchAllTeamMemberReducer;

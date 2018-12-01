@@ -12,7 +12,7 @@ export class ItemRender extends React.Component {
             <View style={styles.container}>
                 <Image
                     style={styles.image}
-                    source={{ uri: '' + this.props.image + '' }}></Image>
+                    source={{ uri: this.props.image }}></Image>
                 <Text style={styles.email}>{this.props.email}</Text>
                 <Text style={styles.name}>{this.props.name}</Text>
             </View >

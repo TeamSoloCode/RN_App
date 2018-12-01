@@ -58,8 +58,8 @@ class LoginScreen extends Component {
               this.props.navigation.navigate('TeamScreen'),
                 this.props.requestFetchAllTeamMember(
                   {
-                    userId: store.getState().myMember.userId,
-                    teamId: store.getState().myMember.teamId
+                    userId: store.getState().myTeam.userId,
+                    teamId: store.getState().myTeam.teamId
                   }
                 )
             }} ></CustomButton>
