@@ -6,13 +6,14 @@ export const styles = StyleSheet.create({
         position: 'relative',
         marginLeft: 10,
         marginRight: 10,
-        marginTop: 10,
+        marginTop: 5,
+        marginBottom: 15,
         paddingBottom: 5,
         paddingTop: 12,
         borderRadius: 10,
         shadowOpacity: 0.3,
         paddingLeft: 20,
-        elevation: 2
+        elevation: 5
 
     },
     image: {
