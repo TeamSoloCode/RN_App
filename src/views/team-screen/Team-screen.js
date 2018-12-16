@@ -17,15 +17,15 @@ class TeamScreen extends Component {
     componentWillMount() {
         this.props.requestFetchAllTeamMember(
             {
-                userId: store.getState().myTeam.userId,
-                teamId: store.getState().myTeam.teamId
+                userId: store.getState().team.userId,
+                teamId: store.getState().team.teamId
             }
         )
     }
 
     componentDidMount() {
         this.unsubscribe = store.subscribe(() => {
-            this.data = store.getState().myTeam.members
+            this.data = store.getState().team.members
             this.forceUpdate()
         })
     }
@@ -42,7 +42,6 @@ class TeamScreen extends Component {
                     title={'TEAM'} showButtonBack={Platform.OS === 'ios' ? true : false}
                     onBackPress={() => { this.props.navigation.goBack(null) }}>
                 </CustomToolbar>
-
 
                 <FlatList
                     data={typeof (this.data) == 'undefined' || this.data == null ? [] : this.data}

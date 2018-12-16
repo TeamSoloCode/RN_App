@@ -38,7 +38,8 @@ export class ItemRender extends React.Component {
                         <Image source={require('../../../images/asset/verticalBottom/vertical_bottom1.png')} />
                     </TouchableOpacity>
                 </TouchableOpacity >
-                {this.state.showMenu === true ? <TouchableOpacity style={styles.menuItem} onPress={this.props.itemClickForward}>
+                {this.state.showMenu === true ? 
+                <TouchableOpacity style={styles.menuItem} onPress={this.props.itemClickForward}>
                     <Text >Show</Text>
                 </TouchableOpacity> : null}
 
