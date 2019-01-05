@@ -4,7 +4,7 @@ import {
 import LoginScreen from "../views/login-screen/LoginScreen";
 import RegisterScreen from '../views/register-screen/RegisterScreen';
 import  TeamScreen  from '../views/team-screen/Team-screen';
-
+import ReceiveInvitation from '../views/receive-invitation-screen/receiveInvitationScreen';
 export const Route = createStackNavigator(
     {
         LoginScreen: {
@@ -24,10 +24,17 @@ export const Route = createStackNavigator(
             navigationOptions: {
                 header: null
             }
+        },
+        
+        InviationScreen: {
+            screen: ReceiveInvitation,
+            navigationOptions: {
+                header: null
+            }
         }
     },
 
     {
-        initialRouteName: 'LoginScreen',
+        initialRouteName: 'InviationScreen',
     }
 );
