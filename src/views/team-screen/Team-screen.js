@@ -13,7 +13,6 @@ class TeamScreen extends Component {
     constructor(props) {
         super(props);
     }
-
     componentWillMount() {
         this.props.requestFetchAllTeamMember(
             {
@@ -37,12 +36,6 @@ class TeamScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-
-                <CustomToolbar
-                    title={'TEAM'} showButtonBack={Platform.OS === 'ios' ? true : false}
-                    onBackPress={() => { this.props.navigation.goBack(null) }}>
-                </CustomToolbar>
-
 
                 <FlatList
                     data={typeof (this.data) == 'undefined' || this.data == null ? [] : this.data}

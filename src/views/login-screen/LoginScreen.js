@@ -15,6 +15,18 @@ class LoginScreen extends Component {
   constructor(props) {
     super(props)
   }
+  componentDidMount() {
+    this.unsubscribe = store.subscribe(() => {
+
+      if(store.getState().login.userAccount.loggedBy != null){
+        this.props.navigation.navigate('TeamScreen')
+      }
+    })
+}
+
+componentWillUnmount() {
+    this.unsubscribe();
+}
   render() {
     return (
       <ImageBackground
@@ -50,7 +62,9 @@ class LoginScreen extends Component {
               this.props.loginWithFirebase(
                 store.getState().login.userAccount.email,
                 store.getState().login.userAccount.password)
-            }} ></CustomButton>
+            }
+            
+            } ></CustomButton>
             <CustomButton name={strings.REGISTER} onClick={() => { this.props.navigation.navigate('RegisterScreen') }} ></CustomButton>
           </View>
           <View style={styles.buttonPosition}>
