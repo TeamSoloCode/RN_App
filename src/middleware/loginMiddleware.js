@@ -18,6 +18,10 @@ const loginFirebase = async (email, password) => {
     return await firebase.auth().signInWithEmailAndPassword(email, password)
 }
 
+/**
+ * Login với firebase middleware
+ * @param {*} action 
+ */
 function* loginFirebaseMiddleware(action) {
     try{
         let loginsStatus = false

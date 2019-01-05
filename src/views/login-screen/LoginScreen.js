@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { View, TextInput, ImageBackground, Image } from 'react-native';
+import { View, ImageBackground, Image } from 'react-native';
 import { connect } from 'react-redux'
 
 import { typingEmail, typingPassword, loginWithFirebase } from '../../actions/loginActions';
-import { requestFetchAllTeamMember } from '../../actions/fetchAllTeamMemberActions'
 import styles from './LoginStyle';
 import CustomInput from '../../components/common-component/custom-input/CustomInput';
 import * as constants from '../../constants';
@@ -11,6 +10,11 @@ import * as color from '../../colors';
 import CustomButton from '../../components/common-component/custom-button/CustomButton';
 import store from '../../store/store'
 import * as strings from '../../string';
+
+
+import { requestCheckHasTeam } from '../../actions/hasTeamActions';
+import InviteDialog from '../invite-dialog/InviteDialog'
+
 class LoginScreen extends Component {
   constructor(props) {
     super(props)
@@ -67,17 +71,13 @@ componentWillUnmount() {
             } ></CustomButton>
             <CustomButton name={strings.REGISTER} onClick={() => { this.props.navigation.navigate('RegisterScreen') }} ></CustomButton>
           </View>
-          <View style={styles.buttonPosition}>
-            <CustomButton name={'cc'} onClick={() => {
-              this.props.navigation.navigate('TeamScreen'),
-                this.props.requestFetchAllTeamMember(
-                  {
-                    userId: store.getState().myTeam.userId,
-                    teamId: store.getState().myTeam.teamId
-                  }
-                )
-            }} ></CustomButton>
+           <View style={styles.buttonPosition}>
+          <CustomButton name={'cc'} onClick={() => {
+              this.props.requestCheckHasTeam({ userId : store.getState().team.userId })
+              //this.props.navigation.navigate('TeamScreen')
+              }}></CustomButton>
           </View>
+          
         </View>
 
       </ImageBackground>
@@ -95,8 +95,8 @@ const mapDispatchToProps = (dispatch) => ({
   loginWithFirebase: (email, password) => {
     dispatch(loginWithFirebase(email, password))
   },
-  requestFetchAllTeamMember: (body) => {
-    dispatch(requestFetchAllTeamMember(body))
+  requestCheckHasTeam: (userId) => {
+    dispatch(requestCheckHasTeam(userId))
   }
 })
 

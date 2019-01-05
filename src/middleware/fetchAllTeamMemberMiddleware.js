@@ -1,7 +1,5 @@
 import {
     REQUEST_FETCH_ALL_TEAM_MEMBER,
-    FETCH_ALL_TEAM_MEMBER_FAILURE,
-    FETCH_ALL_TEAM_MENBER_SUCCESSFUL
 } from '../actions/actionsTypes';
 
 import { fetchAllTeamMember } from '../api/api'
