@@ -94,7 +94,7 @@ export const loginWithFirebaseSuccessful = (userName, userPhone, userPhotoUrl) =
 export const loginWithFirebaseFailure = () =>{
     const action = {
         type: LOGIN_WITH_FIREBASE_FAILURE,
-        loggedBy: ""
+        loggedBy: null
     };
     return action;
 }

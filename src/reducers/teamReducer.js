@@ -45,6 +45,7 @@ const teamReducer = (state = initialState, action) => {
                 break;
 
             case FETCH_ALL_TEAM_MENBER_SUCCESSFUL:
+                console.log('fetched !!!')
                 state.members = action.resultData
                 state.fetchingMembers = false
                 break;

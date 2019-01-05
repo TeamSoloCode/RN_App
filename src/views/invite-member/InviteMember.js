@@ -7,7 +7,7 @@ export default class InviteMember extends Component {
         return (
             <View style={{flex:1}}>
                 <AutoCompleteInput 
-                hint={'Enter Member'} 
+                hint={'Enter Member'}
                 data={data}
                 keyItem={'name'}>
                 </AutoCompleteInput>

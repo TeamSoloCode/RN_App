@@ -8,13 +8,12 @@ import {
     LOGIN_WITH_FIREBASE_FAILURE
 } from '../actions/actionsTypes';
 
+import User from '../models/User'
+
+const userAccount = new User()
+
 let initialState = {
-    userAccount: {
-        email: "",
-        password: "",
-        loggedBy: null,
-        userInfo: null
-    }
+    userAccount
 }
 
 //tạo reducer cho hành động đăng nhập
@@ -26,10 +25,9 @@ const loginReducer = (state = initialState, action) => {
             break;
         case LOGIN_WITH_FIREBASE_SUCCESSFUL:
             state.userAccount.loggedBy = action.loggedBy
-            state.userAccount.userInfo = {}
-            state.userAccount.userInfo.userName = action.userName,
-            state.userAccount.userInfo.userPhone = action.userPhone,
-            state.userAccount.userInfo.userPhotoUrl = action.userPhotoUrl
+            state.userAccount.name = action.userName,
+            state.userAccount.phone = action.userPhone,
+            state.userAccount.photoUrl = action.userPhotoUrl
             break;
         case LOGIN_WITH_FIREBASE_FAILURE:
             state.userAccount.loggedBy = action.loggedBy
