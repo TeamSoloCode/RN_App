@@ -13,7 +13,6 @@ import * as strings from '../../string';
 
 
 import { requestCheckHasTeam } from '../../actions/hasTeamActions';
-import InviteDialog from '../invite-dialog/InviteDialog'
 
 class LoginScreen extends Component {
   constructor(props) {

@@ -16,15 +16,15 @@ class TeamScreen extends Component {
     componentWillMount() {
         this.props.requestFetchAllTeamMember(
             {
-                userId: store.getState().myTeam.userId,
-                teamId: store.getState().myTeam.teamId
+                userId: store.getState().team.userId,
+                teamId: store.getState().team.teamId
             }
         )
     }
 
     componentDidMount() {
         this.unsubscribe = store.subscribe(() => {
-            this.data = store.getState().myTeam.members
+            this.data = store.getState().team.members
             this.forceUpdate()
         })
     }
