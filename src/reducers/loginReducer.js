@@ -12,7 +12,7 @@ let initialState = {
     userAccount: {
         email: "",
         password: "",
-        loggedBy: "",
+        loggedBy: null,
         userInfo: null
     }
 }

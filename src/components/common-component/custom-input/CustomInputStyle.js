@@ -28,7 +28,6 @@ const styles = StyleSheet.create(
   },
   input: {
     flex:1,
-    color:'#FFFFFF'
   },
   ImageStyle: {
     padding: 10,
