@@ -1,5 +1,5 @@
 import {
-    
+    REQUEST_CHECK_IS_LEADER
 } from '../actions/actionsTypes';
 
 import { checkIsLeader } from '../api/api'

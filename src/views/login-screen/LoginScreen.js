@@ -13,6 +13,7 @@ import * as strings from '../../string';
 
 
 import { requestCheckHasTeam } from '../../actions/hasTeamActions';
+import InviteDialog from '../invite-dialog/InviteDialog'
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -56,12 +57,13 @@ class LoginScreen extends Component {
             }} ></CustomButton>
             <CustomButton name={strings.REGISTER} onClick={() => { this.props.navigation.navigate('RegisterScreen') }} ></CustomButton>
           </View>
-          <View style={styles.buttonPosition}>
-            <CustomButton name={'cc'} onClick={() => {
+           <View style={styles.buttonPosition}>
+          <CustomButton name={'cc'} onClick={() => {
               this.props.requestCheckHasTeam({ userId : store.getState().team.userId })
               //this.props.navigation.navigate('TeamScreen')
               }}></CustomButton>
           </View>
+          
         </View>
 
       </ImageBackground>
